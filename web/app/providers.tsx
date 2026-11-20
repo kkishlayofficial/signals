@@ -1,0 +1,27 @@
+"use client";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { useState } from "react";
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  // One QueryClient per browser tab, created once and reused across renders.
+  const [client] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 5_000,
+            refetchOnWindowFocus: false,
+            retry: 1,
+          },
+        },
+      }),
+  );
+
+  return (
+    <QueryClientProvider client={client}>
+      <TooltipProvider delayDuration={200}>{children}</TooltipProvider>
+    </QueryClientProvider>
+  );
+}

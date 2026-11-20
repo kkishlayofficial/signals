@@ -1,0 +1,33 @@
+# Telegram client
+telethon==1.36.0
+
+# Angel One SmartAPI
+smartapi-python==1.5.5
+pyotp==2.9.0
+logzero==1.7.0
+websocket-client==1.8.0
+
+# Environment & config
+python-dotenv==1.0.1
+
+# HTTP (used directly in angel_broker.py to fetch the instrument master;
+# also a smartapi-python dependency, but we import it ourselves so we declare it)
+requests>=2.31.0
+
+# Utilities
+colorama==0.4.6
+
+# Dashboard API (embedded in main.py as an asyncio task — see api/)
+fastapi==0.163.2
+uvicorn==0.54.0
+websockets==17.4
+pydantic==2.14.3
+
+# Dev/test only
+pytest==9.2.0
+pytest-asyncio==1.5.0
+httpx==0.28.1
+
+# Removed: aiohttp and pandas. Neither was imported anywhere in this project,
+# and neither is required by telethon or smartapi-python. pandas also has no
+# prebuilt wheel for Python 3.14, so it was compiling from source on install.

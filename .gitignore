@@ -1,0 +1,39 @@
+# Credentials
+.env
+.env.*
+!.env.example
+*.session
+*.session-journal
+
+# Broker instrument master (large public download, re-fetched daily)
+instruments.json
+
+# Database
+*.db
+*.db.bak*
+*.sqlite
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+ENV/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
